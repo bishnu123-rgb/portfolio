@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Bishnu Parajuli - Junior Data Analyst, Data Engineer & Database Developer. BSc Computing student with expertise in PySpark, SQL, Tableau, PostgreSQL, and AWS.">
+  <title>Bishnu Parajuli | Portfolio - Data Enthusiast</title>
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Dynamic Gradient Background Grid -->
+  <div class="bg-grid"></div>
+  
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo" id="nav-logo">
+        <span class="logo-accent">BP</span> | Data Enthusiast
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul>
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#timeline" class="nav-link">Journey</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Options -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars menu-icon"></i>
+          <i class="fa-solid fa-xmark close-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-nav" class="mobile-nav">
+    <div class="mobile-nav-content">
+      <ul>
+        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#timeline" class="mobile-nav-link">Journey</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-badge animate-fade-in"><span class="badge-dot"></span> Open to Opportunities</span>
+          <h1 class="hero-title">
+            Hi, I am <span class="text-gradient">Bishnu Parajuli</span>
+          </h1>
+          <h2 class="hero-subtitle">
+            I'm a <span id="typing-text" class="typing-text"></span><span class="typing-cursor">|</span>
+          </h2>
+          <p class="hero-description">
+            BSc (Hons) Computing student focused on building robust data pipelines, scalable database architectures, and analytical solutions.
+          </p>
+          <div class="hero-buttons">
+            <a href="assets/cv.pdf" class="btn btn-primary" id="download-cv-hero" download="Bishnu_Parajuli_Resume.pdf">
+              <i class="fa-solid fa-download"></i> Download CV
+            </a>
+            <a href="#projects" class="btn btn-secondary" id="view-projects-hero">
+              Explore Projects
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div class="visual-card glass-card">
+            <div class="visual-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="file-name">data_pipeline.py</span>
+            </div>
+            <div class="visual-body">
+              <pre><code><span class="code-keyword">import</span> pyspark.sql.functions <span class="code-keyword">as</span> F
+<span class="code-keyword">from</span> pyspark.sql <span class="code-keyword">import</span> SparkSession
+
+<span class="code-comment"># Build dynamic pipeline</span>
+spark = SparkSession.builder \
+    .appName(<span class="code-string">"BishnuPortfolio"</span>) \
+    .getOrCreate()
+
+data = spark.read.json(<span class="code-string">"source_logs/*.json"</span>)
+cleaned = data.filter(F.col(<span class="code-string">"status"</span>) == <span class="code-string">"SUCCESS"</span>) \
+              .groupBy(<span class="code-string">"category"</span>) \
+              .agg(F.count(<span class="code-string">"*"</span>).alias(<span class="code-string">"total"</span>))
+
+cleaned.write.mode(<span class="code-string">"overwrite"</span>).saveAsTable(<span class="code-string">"metrics"</span>)
+print(<span class="code-string">"🚀 Data pipeline execution complete!"</span>)</code></pre>
+            </div>
+          </div>
+          <div class="visual-circle circle-1"></div>
+          <div class="visual-circle circle-2"></div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Scroll Down">
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section scroll-spy-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">About Me</span>
+          <h2 class="section-title">Who is Bishnu Parajuli?</h2>
+          <div class="header-line"></div>
+        </div>
+        
+        <div class="about-grid">
+          <div class="about-text glass-card">
+            <p>
+              I am a dedicated and detail-oriented student based in <strong>Bhaktapur, Nepal</strong>. With a solid foundation in computer science from my studies at Islington College, I have developed a strong passion for <strong>data analytics, database development, and data engineering</strong>.
+            </p>
+            <p>
+              My professional focus lies in building robust data pipelines, designing clean database schemas, writing optimized SQL queries, and translating raw data into actionable business intelligence. I specialize in setting up efficient ETL processes, analyzing complex datasets, and leveraging cloud technologies to manage and scale data infrastructures. I also have a strong, growing interest in <strong>sports data analytics and mathematical modeling</strong>.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div>
+                  <h4>BSc Computing</h4>
+                  <p>Islington College (London Met)</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-certificate"></i>
+                <div>
+                  <h4>4x AWS Academy Grad</h4>
+                  <p>NLP, ML, Data Eng, Cloud</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-code-fork"></i>
+                <div>
+                  <h4>Hands-on Internship</h4>
+                  <p>Database & app engineering at ViN</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-cards-container">
+            <div class="info-card glass-card">
+              <h3>Focus Areas</h3>
+              <ul class="info-list">
+                <li><strong>Role Interest:</strong> Junior Data Analyst, Data Engineer, SQL/BI Developer, Database Developer</li>
+                <li><strong>Database Systems:</strong> PostgreSQL, SQL Server (SSMS), SQLite, MySQL</li>
+                <li><strong>Cloud Architecture:</strong> AWS Cloud Essentials, AWS Machine Learning &amp; NLP, AWS Data Pipelines</li>
+                <li><strong>Languages:</strong> Python, JavaScript (ES6+), SQL, HTML5/CSS3</li>
+              </ul>
+            </div>
+            
+            <!-- Graphic Card (Generated Art) -->
+            <div class="about-art-card glass-card" style="padding: 0; overflow: hidden; height: 180px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <img src="assets/data_science_art.png" alt="Data Network Mesh Visualization" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: var(--transition-speed);">
+            </div>
+            
+            <div class="quotes-card glass-card">
+              <i class="fa-solid fa-quote-left quotes-icon"></i>
+              <p class="quote-text">
+                "Data is the fuel, but clean pipelines and well-structured databases are the engine that drives real insights."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education Journey Timeline -->
+    <section id="timeline" class="timeline-section scroll-spy-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">My Journey</span>
+          <h2 class="section-title">Education & Experience</h2>
+          <div class="header-line"></div>
+        </div>
+        
+        <div class="timeline-container">
+          <!-- Timeline Item 1 (Internship) -->
+          <div class="timeline-item left-item">
+            <div class="timeline-marker">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">Nov 2025 - Jan 2026</span>
+              <h3>Data Management & Analytics Intern</h3>
+              <h4 class="company-name">Volunteers Initiative Nepal (ViN)</h4>
+              <p class="timeline-desc">
+                Designed and implemented a centralized Volunteer Management System database using PostgreSQL and created automation scripts in Python.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 (Education - BSc) -->
+          <div class="timeline-item right-item">
+            <div class="timeline-marker">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2023 - Present</span>
+              <h3>BSc (Hons) Computing</h3>
+              <h4 class="company-name">Islington College / London Metropolitan University</h4>
+              <p class="timeline-desc">
+                Comprehensive knowledge and skill in software development, computational analytics, database management, and advanced systems design.
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section scroll-spy-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">Expertise</span>
+          <h2 class="section-title">Technical Skillset</h2>
+          <div class="header-line"></div>
+        </div>
+        
+        <div class="skills-grid">
+          <!-- Skill Card 1: Languages -->
+          <div class="skill-card glass-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3>Programming Languages</h3>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-name"><span>Python</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>SQL (PostgreSQL/TSQL)</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>JavaScript</span><span>75%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>HTML5 / CSS3</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>Java</span><span>50%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 50%"></div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 2: Data Engineering -->
+          <div class="skill-card glass-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3>Data Engineering & ETL</h3>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-name"><span>PySpark & Big Data</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>Database Normalization</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>ETL Pipeline Design</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>Data Wrangling & Cleaning</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 3: Web Frameworks -->
+          <div class="skill-card glass-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-window-restore"></i>
+            </div>
+            <h3>Web & App Development</h3>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-name"><span>React.js</span><span>75%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>Node.js / Express</span><span>70%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>API Integration</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 4: BI & Cloud -->
+          <div class="skill-card glass-card">
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3>BI, Cloud & Tools</h3>
+            <ul class="skill-list">
+              <li>
+                <div class="skill-name"><span>Tableau & Power BI</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>AWS Services</span><span>70%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>Git Version Control</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </li>
+              <li>
+                <div class="skill-name"><span>Jupyter / Excel</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section scroll-spy-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">My Works</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="header-line"></div>
+        </div>
+        
+        <!-- Filter Tabs -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web">Web & Software</button>
+          <button class="filter-btn" data-filter="data">Data & BI</button>
+          <button class="filter-btn" data-filter="engineering">Data Engineering</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+          <!-- Project 1: PharmaTrack (Web/Cap) -->
+          <div class="project-card glass-card" data-category="web">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+              <div class="project-tag">BSc Capstone</div>
+            </div>
+            <div class="project-content">
+              <h3>PharmaTrack</h3>
+              <p>
+                A comprehensive pharmacy management application developed for final year project. Tracks inventory stocks, medicine sales billing, user management, and issues automatic expiry warnings.
+              </p>
+              <div class="tech-tags">
+                <span>PostgreSQL</span>
+                <span>React.js</span>
+                <span>Node.js</span>
+                <span>Express</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/PharmaTrack-FYP" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Repository</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: AutoBolt (Web) -->
+          <div class="project-card glass-card" data-category="web">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-car-wrench"></i>
+              <div class="project-tag">Academic</div>
+            </div>
+            <div class="project-content">
+              <h3>AutoBolt Automotive Shop</h3>
+              <p>
+                A full-stack automotive service booking platform. Separated into decoupled React frontend and C# backend architectures to provide vehicle servicing updates and mechanic availability.
+              </p>
+              <div class="tech-tags">
+                <span>React.js</span>
+                <span>C#</span>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Sirson39/AutoBolt_frontend" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Frontend</a>
+                <a href="https://github.com/Sirson39/AutoBolt_backend" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Backend</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: football_etl (Engineering) -->
+          <div class="project-card glass-card" data-category="engineering">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-futbol"></i>
+              <div class="project-tag">Big Data / ETL</div>
+            </div>
+            <div class="project-content">
+              <h3>football_etl Pipeline</h3>
+              <p>
+                PySpark-based ETL pipeline processing historical football match statistics. Runs data transformations, stores output in structured databases, and generates interactive graphs in Apache Superset.
+              </p>
+              <div class="tech-tags">
+                <span>Python</span>
+                <span>PySpark</span>
+                <span>Debian</span>
+                <span>Apache Superset</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/football_etl" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Repository</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: SQL Exploration (Data) -->
+          <div class="project-card glass-card" data-category="data">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              <div class="project-tag">SQL Analytics</div>
+            </div>
+            <div class="project-content">
+              <h3>SQL Data Cleaning & Exploration</h3>
+              <p>
+                Advanced database cleaning and exploratory analysis of COVID-19 and Nashville housing datasets. Employs complex CTEs, Window functions, Joins, and aggregations to format raw data for BI ingest.
+              </p>
+              <div class="tech-tags">
+                <span>SQL Server</span>
+                <span>SSMS</span>
+                <span>CTEs</span>
+                <span>Data Cleaning</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/SQL" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Queries</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: BI Dashboards (Data) -->
+          <div class="project-card glass-card" data-category="data">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-chart-column"></i>
+              <div class="project-tag">BI Dashboards</div>
+            </div>
+            <div class="project-content">
+              <h3>Power BI & Tableau Projects</h3>
+              <p>
+                Visual dashboards analyzing Airbnb rentals, global video game sales (vgsales), and disaster food inventory datasets. Utilized DAX formulas, calculated columns, and custom charts.
+              </p>
+              <div class="tech-tags">
+                <span>Tableau</span>
+                <span>Power BI</span>
+                <span>DAX</span>
+                <span>Data Modeling</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/Tableau" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Tableau Repo</a>
+                <a href="https://github.com/bishnu123-rgb/Power-BI" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Power BI Repo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: NYC 311 EDA (Data) -->
+          <div class="project-card glass-card" data-category="data">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <div class="project-tag">Jupyter</div>
+            </div>
+            <div class="project-content">
+              <h3>NYC 311 Complaint Analysis</h3>
+              <p>
+                Jupyter Notebook analyzing municipal service complaints in NYC. Performs data cleaning, handles null records, and uses Seaborn/Matplotlib to plot complaint types by borough and response efficiency.
+              </p>
+              <div class="tech-tags">
+                <span>Jupyter</span>
+                <span>Pandas</span>
+                <span>Matplotlib</span>
+                <span>Seaborn</span>
+              </div>
+              <div class="project-links">
+                <a href="https://drive.google.com/drive/folders/1ELsg-wZmiNe3zn8VbCVsCsW57V3nGp1W?usp=sharing" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Notebook</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7: Kumari Cinemas (Web) -->
+          <div class="project-card glass-card" data-category="web">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-film"></i>
+              <div class="project-tag">Academic</div>
+            </div>
+            <div class="project-content">
+              <h3>Kumari Cinemas Movie Booking</h3>
+              <p>
+                Web-based theatre system implementing showtime visual grids, seat reservation tracking, and ticket printing calculations, backed by SQL schema script queries.
+              </p>
+              <div class="tech-tags">
+                <span>HTML / CSS</span>
+                <span>JavaScript</span>
+                <span>SQL</span>
+                <span>Database Design</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/KumariCinemas" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Repository</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 8: PySpark Analytics (Engineering) -->
+          <div class="project-card glass-card" data-category="engineering">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-cubes"></i>
+              <div class="project-tag">Big Data</div>
+            </div>
+            <div class="project-content">
+              <h3>PySpark Big Data Analytics</h3>
+              <p>
+                Exploring large datasets containing millions of transactions. Configured data nodes and query aggregates in PySpark to analyze user spending and retrieve sub-second aggregations.
+              </p>
+              <div class="tech-tags">
+                <span>PySpark</span>
+                <span>Python</span>
+                <span>Hadoop FS</span>
+                <span>HDFS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/big-data-pyspark" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Repository</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 9: Higgs Boson (Data/ML) -->
+          <div class="project-card glass-card" data-category="data">
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-atom"></i>
+              <div class="project-tag">Machine Learning</div>
+            </div>
+            <div class="project-content">
+              <h3>Higgs Boson Particle Classification</h3>
+              <p>
+                Machine learning classification model predicting Higgs Boson particle decay signals from CERN collision datasets. Implements high-dimensional feature engineering, null value imputation, and gradient-boosted decision trees.
+              </p>
+              <div class="tech-tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Scikit-Learn</span>
+                <span>XGBoost</span>
+                <span>Matplotlib</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/Higgs-Boson" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Repository</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 10: Python & Pandas (Data/Foundational) -->
+          <div class="project-card glass-card" data-category="data">
+            <div class="project-image-placeholder">
+              <i class="fa-brands fa-python"></i>
+              <div class="project-tag">Foundational</div>
+            </div>
+            <div class="project-content">
+              <h3>Foundational Python &amp; Data Wrangling</h3>
+              <p>
+                Core programming repositories consolidating data structure implementations, algorithms, and comprehensive data manipulation workflows using Pandas for exploratory analysis.
+              </p>
+              <div class="tech-tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Data Structures</span>
+                <span>Jupyter</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bishnu123-rgb/Python" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Python Repo</a>
+                <a href="https://github.com/bishnu123-rgb/Pandas" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Pandas Repo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications-section scroll-spy-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">Qualifications</span>
+          <h2 class="section-title">Certifications & Training</h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="certifications-grid">
+          <!-- Cert 1 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-brands fa-aws"></i></div>
+            <h3>AWS Academy Graduate</h3>
+            <h4>AWS Machine Learning &amp; NLP</h4>
+            <p>AWS Academy course training on deploying machine learning algorithms on SageMaker for text extraction, translation, and sentiment analysis.</p>
+            <a href="https://drive.google.com/file/d/1oXjWWxg0QZdZtUojGBu5HKvV7UZFPgga/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
+          </div>
+          <!-- Cert 2 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-brands fa-aws"></i></div>
+            <h3>AWS Academy Graduate</h3>
+            <h4>Data Engineering</h4>
+            <p>Hands-on validation covering Amazon RDS, EMR big data configurations, Redshift warehousing, and Glue ETL data flows.</p>
+            <a href="https://drive.google.com/file/d/14DGUQuls1429miChrt6dSaDaJGc3SeuZ/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
+          </div>
+          <!-- Cert 3 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-brands fa-aws"></i></div>
+            <h3>AWS Academy Graduate</h3>
+            <h4>Machine Learning Foundations</h4>
+            <p>Foundations of supervised &amp; unsupervised learning model builds, data features optimization, and deployment pipelines.</p>
+            <a href="https://drive.google.com/file/d/1a3lihLHPBMTYoR_WxcMII4UWGVaYjp3R/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
+          </div>
+          <!-- Cert 4 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-brands fa-aws"></i></div>
+            <h3>AWS Academy Graduate</h3>
+            <h4>Cloud Foundations</h4>
+            <p>Comprehensive training on AWS core global infrastructures, VPC routing, cloud compute, IAM policies, and cloud budget management.</p>
+            <a href="https://drive.google.com/file/d/1cSaSBgQP6xjdUhkjEtt6CF8YfuzmP3gm/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
+          </div>
+          <!-- Cert 5 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Exploring Big Data with PySpark</h3>
+            <h4>Analytics and Insights</h4>
+            <p>Dedicated course project focusing on Spark context configurations, distributed datasets mapping, and processing big data logs.</p>
+          </div>
+          <!-- Cert 6 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-solid fa-sitemap"></i></div>
+            <h3>Data Structures &amp; Algorithms</h3>
+            <h4>Core Coursework</h4>
+            <p>Intensive study of stack, queues, binary trees, sorting networks, and algorithm performance complexities (Big O analysis).</p>
+          </div>
+          <!-- Cert 7 -->
+          <div class="cert-card glass-card">
+            <div class="cert-badge"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Internship Completion</h3>
+            <h4>Volunteers Initiative Nepal (ViN)</h4>
+            <p>Official recognition for designing and implementing the Volunteer Management System database at a non-governmental organisation in Nepal.</p>
+            <a href="https://drive.google.com/file/d/1OPzAjaHyyhYo7gfznDoTeRq3LyWsqnXo/view?usp=drive_link" target="_blank" rel="noopener" class="cert-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section scroll-spy-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">Get In Touch</span>
+          <h2 class="section-title">Contact Me</h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info glass-card">
+            <h3>Let's start a conversation!</h3>
+            <p>
+              I am currently looking for my first professional job opportunity as a data analyst, database specialist, junior developer, or data engineer. Feel free to contact me.
+            </p>
+            
+            <div class="info-details">
+              <a href="mailto:bishnuparajuli884@gmail.com" class="info-detail-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>bishnuparajuli884@gmail.com</p>
+                </div>
+              </a>
+              <a href="tel:+9779811007214" class="info-detail-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+977 9811007214</p>
+                </div>
+              </a>
+              <div class="info-detail-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>Bhaktapur, Nepal</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links-container">
+              <h4>Find me on:</h4>
+              <div class="social-links">
+                <a href="https://github.com/bishnu123-rgb" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:bishnuparajuli884@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-card glass-card">
+            <h3>Send Message</h3>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="form-name">Full Name</label>
+                <input type="text" id="form-name" required placeholder="Bishnu Parajuli">
+              </div>
+              <div class="form-group">
+                <label for="form-email">Email Address</label>
+                <input type="email" id="form-email" required placeholder="bishnu@gmail.com">
+              </div>
+              <div class="form-group">
+                <label for="form-subject">Subject</label>
+                <input type="text" id="form-subject" required placeholder="Job Opportunity">
+              </div>
+              <div class="form-group">
+                <label for="form-message">Message</label>
+                <textarea id="form-message" rows="5" required placeholder="Write your message here..."></textarea>
+              </div>
+              <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">
+                Send Message <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+            <div id="form-response" class="form-response" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content text-center">
+      <p class="footer-logo"><span class="logo-accent">BP</span> | Data Enthusiast</p>
+      <p class="footer-text">
+        Designed & Built by Bishnu Parajuli. All rights reserved. &copy; <span id="current-year"></span>
+      </p>
+      <div class="footer-links">
+        <a href="#hero">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
